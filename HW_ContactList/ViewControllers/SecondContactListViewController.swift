@@ -8,38 +8,56 @@
 import UIKit
 
 class SecondContactListViewController: UITableViewController {
+    let persons = Person.getPersons(names: DataStore().names,
+                                    surnames: DataStore().surnames,
+                                    phones: DataStore().phones,
+                                    mails: DataStore().mails)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        persons.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let contact = persons[section]
+        return "\(contact.firstName) \(contact.lastName)"
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView(frame: )
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 2
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let contact = persons[indexPath.section]
 
-        // Configure the cell...
-
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "contactPhone", for: indexPath)
+            var content = cell.defaultContentConfiguration()
+            content.image = UIImage(systemName: "phone")
+            content.text = contact.phone
+            cell.contentConfiguration = content
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "contactMail", for: indexPath)
+            var content = cell.defaultContentConfiguration()
+            content.image = UIImage(systemName: "envelope")
+            content.text = contact.email
+            cell.contentConfiguration = content
+            return cell
+        }
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
