@@ -28,10 +28,6 @@ class SecondContactListViewController: UITableViewController {
         let contact = persons[section]
         return "\(contact.firstName) \(contact.lastName)"
     }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView(frame: )
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
