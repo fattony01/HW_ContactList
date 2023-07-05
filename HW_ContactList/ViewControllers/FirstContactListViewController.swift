@@ -8,14 +8,8 @@
 import UIKit
 
 class FirstContactListViewController: UITableViewController {
-    let persons = Person.getPersons(names: DataStore().names,
-                                    surnames: DataStore().surnames,
-                                    phones: DataStore().phones,
-                                    mails: DataStore().mails)
+    var persons: [Person] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -8,10 +8,7 @@
 import UIKit
 
 class SecondContactListViewController: UITableViewController {
-    let persons = Person.getPersons(names: DataStore().names,
-                                    surnames: DataStore().surnames,
-                                    phones: DataStore().phones,
-                                    mails: DataStore().mails)
+    var persons: [Person] = []
 
 
     override func viewDidLoad() {
@@ -24,9 +21,19 @@ class SecondContactListViewController: UITableViewController {
         persons.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let contact = persons[section]
-        return "\(contact.firstName) \(contact.lastName)"
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerLabel = UILabel(frame: CGRect(x: 16, y: 3, width: tableView.frame.width, height: 20))
+        
+        headerLabel.text = persons[section].fullName
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        
+        let contentView = UIView()
+        contentView.addSubview(headerLabel)
+        return contentView
+    }
+ 
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.backgroundColor = .lightGray
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

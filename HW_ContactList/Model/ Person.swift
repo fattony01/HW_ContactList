@@ -6,21 +6,32 @@
 //
 
 struct Person {
-    let person = DataStore()
+    let dataStore = DataStore()
     
     var firstName: String
     var lastName: String
     var phone: String
     var email: String
+    var fullName: String {
+        "\(firstName) \(lastName)"
+    }
     
     
-    static func getPersons(names: [String],
-                           surnames: [String],
-                           phones: [String],
-                           mails: [String]) -> [Person] {
+    static func getPersons() -> [Person] {
+        let dataStore = DataStore()
+        let names = dataStore.names.shuffled()
+        let surnames = dataStore.surnames.shuffled()
+        let phones = dataStore.phones.shuffled()
+        let mails = dataStore.mails.shuffled()
+        
         var persons: [Person] = []
         
-        for index in 0..<min(names.count, surnames.count, phones.count, mails.count) {
+        let minimumCount = min(names.count,
+                               surnames.count,
+                               phones.count,
+                               mails.count)
+        
+        for index in 0..<minimumCount {
             let person = Person(firstName: names[index],
                                 lastName: surnames[index],
                                 phone: phones[index],
