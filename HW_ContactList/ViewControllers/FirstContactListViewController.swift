@@ -9,8 +9,7 @@ import UIKit
 
 class FirstContactListViewController: UITableViewController {
     var persons: [Person] = []
-
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         persons.count
@@ -26,7 +25,7 @@ class FirstContactListViewController: UITableViewController {
         cell.contentConfiguration = content
         return cell
     }
-
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let contactInfoVC = segue.destination as? ContactInfoViewController else { return }

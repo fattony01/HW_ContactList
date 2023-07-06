@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="-601" y="-68"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="VnY-CB-xYi">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="r4M-jD-pk7" customClass="TabBarController" customModule="HW_ContactList" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="r4M-jD-pk7" customClass="MainTabBarController" customModule="HW_ContactList" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="DDQ-ga-o6s"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XrC-qY-64w">
