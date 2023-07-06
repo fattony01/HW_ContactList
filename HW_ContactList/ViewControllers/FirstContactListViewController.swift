@@ -20,7 +20,7 @@ class FirstContactListViewController: UITableViewController {
         let contact = persons[indexPath.row]
         var content = cell.defaultContentConfiguration()
         
-        content.text = "\(contact.firstName) \(contact.lastName)"
+        content.text = contact.fullName
         
         cell.contentConfiguration = content
         return cell
